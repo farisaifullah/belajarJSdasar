@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+   
+  <head>
+       
+    <meta charset="utf-8" />
+       
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+       
+    <title>Belajar JavaScript</title>
+     </head
+  > 
+  <body>
+       
+    <script>
+      //C1
+      function sapa(nama) {
+        console.log("Hello, " + nama + "!");
+      }
+      sapa("Dontol");
+      console.log("-------------------");
+      function isGenap(angka) {
+        if (angka % 2 === 0) {
+          console.log("Genap");
+        }
+      }
+      isGenap(4);
+      //C2
+      console.log("-------------------");
+      function luasLingkaran(jariJari) {
+        const phi = 3.14;
+        return phi * jariJari * jariJari;
+      }
+      const hasilLuas = luasLingkaran(10);
+      console.log(hasilLuas);
+      console.log("-------------------");
+      function akarKuadrat(angka) {
+        return Math.sqrt(angka);
+      }
+      const hasilAkar = akarKuadrat(9);
+      console.log(hasilAkar);
+      console.log("-------------------");
+      function hitungBMI(berat, tinggi) {
+        const bmi = berat / (tinggi * tinggi);
+        if (bmi < 18.5) {
+          return "Kurus";
+        } else if (bmi < 24.9) {
+          return "Normal";
+        } else if (bmi < 29.9) {
+          return "Gemuk";
+        } else {
+          return "Obesitas";
+        }
+      }
+      const hasilBMI = hitungBMI(88, 1.71);
+      console.log(hasilBMI);
+      //C3
+      console.log("-------------------");
+      function operasiMatematika(a, b, operasi) {
+        return operasi(a, b);
+      }
+      console.log(operasiMatematika(100, 100, (a, b) => a + b));
+    </script>
+  </body>
+</html>

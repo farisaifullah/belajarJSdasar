@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+   
+  <head>
+       
+    <meta charset="utf-8" />
+       
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+       
+    <title>Belajar JavaScript</title>
+     </head
+  > 
+  <body>
+       
+    <script>
+      //Latihan 1
+      const books = [
+        { id: 1, title: "JavaScript Basics", stock: 5, price: 150000 },
+        { id: 2, title: "Advanced CSS", stock: 3, price: 200000 },
+        { id: 3, title: "React Fundamentals", stock: 0, price: 300000 },
+      ];
+      //1
+      function cariBuku(keyword) {
+        return books.filter((book) =>
+          book.title.toLowerCase().includes(keyword.toLowerCase())
+        );
+      }
+      console.log(cariBuku("javascript"));
+      //2
+      function beliBuku(id, quantity) {
+        const book = books.find((book) => book.id === id);
+        if (!book) {
+          return "Buku tidak ditemukan";
+        }
+        if (book.stock < quantity) {
+          return "Stok tidak cukup";
+        }
+        book.stock -= quantity;
+        return `Berhasil membeli ${quantity} buku ${book.title} seharga ${
+          book.price * quantity
+        }`;
+      }
+      console.log(beliBuku(2, 3));
+      //3
+      function tambahStock(id, quantity) {
+        const book = books.find((book) => book.id === id);
+        if (!book) {
+          return "Buku tidak ditemukan";
+        }
+        book.stock += quantity;
+        return `Berhasil menambah stok buku ${book.title} sebanyak ${quantity}`;
+      }
+      console.log(tambahStock(3, 10));
+      //Latihan 2
+      function validateForm(data) {
+        const errors = {};
+        let isValid = true;
+        // Validasi Username
+        if (!data.username) {
+          errors.username = "Username tidak boleh kosong";
+          isValid = false;
+        } else if (data.username.length < 5) {
+          errors.username = "Username minimal 5 karakter";
+          isValid = false;
+        } else if (data.username.length > 15) {
+          errors.username = "Username maksimal 15 karakter";
+          isValid = false;
+        }
+        // Validasi Email
+        if (!data.email) {
+          errors.email = "Email tidak boleh kosong";
+          isValid = false;
+        } else if (!data.email.includes("@") || !data.email.includes(".")) {
+          errors.email = "Email harus mengandung @ dan .";
+          isValid = false;
+        }
+        // Validasi Password
+        if (!data.password) {
+          errors.password = "Password tidak boleh kosong";
+          isValid = false;
+        } else if (data.password.length < 8) {
+          errors.password = "Password minimal 8 karakter";
+          isValid = false;
+        } else {
+          const hasNumber = /\d/.test(data.password);
+          const hasUpperCase = /[A-Z]/.test(data.password);
+          if (!hasNumber) {
+            errors.password = "Password harus mengandung angka";
+            isValid = false;
+          } else if (!hasUpperCase) {
+            errors.password = "Password harus mengandung huruf besar";
+            isValid = false;
+          }
+        }
+        // Validasi Konfirmasi Password
+        if (!data.confirmPassword) {
+          errors.confirmPassword = "Konfirmasi password tidak boleh kosong";
+          isValid = false;
+        } else if (data.password !== data.confirmPassword) {
+          errors.confirmPassword =
+            "Konfirmasi password harus sama dengan password";
+          isValid = false;
+        }
+        return { isValid, errors };
+      }
+      // Test case 1: Data valid
+      console.log("=== Test Case 1: Data Valid ===");
+      const validData = {
+        username: "john123",
+        email: "john@example.com",
+        password: "Password123",
+        confirmPassword: "Password123",
+      };
+      console.log(validateForm(validData));
+      //Latihan 3
+      function calculateStats(numbers) {
+        if (!numbers || numbers.length === 0) {
+          return { average: 0, max: 0, min: 0, evenCount: 0 };
+        }
+        // Hitung rata-rata
+        const sum = numbers.reduce((total, num) => total + num, 0);
+        const average = sum / numbers.length;
+        // Hitung nilai tertinggi
+        const max = Math.max(...numbers);
+        // Hitung nilai terendah
+        const min = Math.min(...numbers);
+        // Hitung jumlah angka genap
+        const evenCount = numbers.filter((num) => num % 2 === 0).length;
+        return { average: average, max: max, min: min, evenCount: evenCount };
+      }
+      // Contoh penggunaan:
+      console.log(calculateStats([10, 5, 8, 20, 3]));
+      console.log(calculateStats([1, 2, 3, 4, 5]));
+      console.log(calculateStats([100]));
+      console.log(calculateStats([]));
+    </script>
+     
+  </body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+   
+  <head>
+       
+    <meta charset="utf-8" />
+       
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+       
+    <title>Belajar JavaScript</title>
+     </head
+  > 
+  <body>
+       
+    <script>
+      //C1
+      for (let a = 1; a <= 10; a++) {
+        console.log(a);
+      }
+      console.log("------------------");
+      for (let b = 20; b >= 0; b--) {
+        if (b % 2 === 0) {
+          console.log(b);
+        }
+      }
+      console.log("------------------");
+      for (let c = 10; c >= 1; c--) {
+        console.log(c);
+      }
+      //C2
+      let autentikasi = 0;
+      const truePass = "faris";
+      let inputPass;
+      while (autentikasi < 3) {
+        inputPass = prompt("Masukkan password:");
+        if (inputPass === truePass) {
+          console.log("Password benar!");
+          break;
+        }
+        autentikasi++;
+      }
+      console.log("-------------------");
+      const nilaiAwal = Math.floor(Math.random() * 50) + 5;
+      console.log(`Penghitung mundur dimulai dari ${nilaiAwal}:`);
+      let penghitung = nilaiAwal;
+      while (penghitung >= 0) {
+        console.log(penghitung);
+        penghitung--;
+      }
+      console.log("-------------------");
+      //C3
+      let angka;
+      let total = 0;
+      let count = 0;
+      do {
+        angka = parseInt(prompt("Masukkan angka (0 untuk berhenti):"));
+        if (angka !== 0 && !isNaN(angka)) {
+          total += angka;
+          count++;
+          console.log(`Anda memasukkan angka: ${angka}`);
+        } else if (isNaN(angka)) {
+          console.log("Masukkan harus berupa angka!");
+        }
+      } while (angka !== 0);
+      console.log("-------------------");
+      if (count > 0) {
+        const rataRata = total / count;
+        console.log(`Rata-rata dari angka yang dimasukkan adalah: ${rataRata}`);
+      } else {
+        console.log("Tidak ada angka yang dimasukkan.");
+      }
+      //C4
+      for (let i = 1; i <= 10; i++) {
+        if (i === 5) {
+          console.log("Loop dihentikan karena menemukan angka 5.");
+          // Menghentikan loop ketika i adalah 5
+          break;
+        }
+        console.log(i);
+      }
+      console.log("-------------------");
+      for (let j = 1; j <= 10; j++) {
+        if (j % 2 !== 0) {
+          // Melewati angka ganjil
+          continue;
+        }
+        console.log(j);
+      }
+    </script>
+     
+  </body>
+</html>

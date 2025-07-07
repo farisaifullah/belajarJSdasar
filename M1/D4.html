@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+   
+  <head>
+       
+    <title>Belajar JavaScript</title>
+     </head
+  > 
+  <body>
+       
+    <script>
+      const usia = 34;
+      const isStudent = false;
+      // C1
+      if (usia >= 17 && usia <= 30) {
+        console.log("Anda adalah orang dewasa muda");
+      } else if (usia > 30) {
+        console.log("Anda adalah orang dewasa tua");
+      } else {
+        console.log("Anda belum bisa membuat KTP");
+      }
+      // C2
+      const KTP = usia >= 17 ? "cukup umur" : "belum cukup umur";
+      const status = isStudent ? "pelajar" : "pekerja";
+      console.log(`Anda ${KTP} dan berstatus sebagai ${status}`);
+      // C3
+      const hari = 3;
+      switch (hari) {
+        case 1:
+          console.log("Hari Senin");
+          console.log("Weekday");
+          break;
+        case 2:
+          console.log("Hari Selasa");
+          console.log("Weekday");
+          break;
+        case 3:
+          console.log("Hari Rabu");
+          console.log("Weekday");
+          break;
+        case 4:
+          console.log("Hari Kamis");
+          console.log("Weekday");
+          break;
+        case 5:
+          console.log("Hari Jumat");
+          console.log("Weekday");
+          break;
+        case 6:
+          console.log("Hari Sabtu");
+          console.log("Weekend");
+          break;
+        case 7:
+          console.log("Hari Minggu");
+          console.log("Weekend");
+          break;
+        default:
+          console.log("Hari tidak valid");
+      }
+    </script>
+     
+  </body>
+</html>
