@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Belajar JavaScript</title>
+  </head>
+  <body>
+    <!-- C2A
+    <p id="info">Belajar JavaScript</p>
+    <script>
+      let element = document.getElementById("info");
+      element.textContent = "Sedang belajar DOM";
+      element.style.color = "blue";
+    </script> -->
+
+    <!-- C2B 
+     <img id="gambar" src="gambar1.jpg" alt="Gambar awal">
+    <script>
+      let gambar = document.getElementById("gambar");
+      gambar.src = "gambar2.jpg";
+      gambar.alt = "Gambar baru";
+      gambar.style.border = "2px solid black";
+    </script>-->
+
+    <!-- C3 -->
+    <input type="text" />
+    <button id="tombol">Klik Saya</button>
+    <script>
+      let input = document.querySelector("input");
+      let tombol = document.getElementById("tombol");
+      let paragraf = document.createElement("p");
+      document.body.appendChild(paragraf);
+      tombol.addEventListener("click", function () {
+        paragraf.textContent = input.value.toUpperCase();
+        paragraf.style.color = "green";
+      });
+    </script>
+  </body>
+</html>

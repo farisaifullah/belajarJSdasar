@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+   
+  <head>
+       
+    <meta charset="UTF-8" />
+       
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+       
+    <title>Belajar JavaScript</title>
+     </head
+  > 
+  <body>
+       
+    <script>
+      //C1
+      let numbers = [10, 20, 30];
+      numbers.push(40);
+      numbers.splice(1, 1);
+      numbers.splice(1, 0, 15);
+      console.log(numbers);
+      console.log("--------------");
+      //C2 & //C3
+      let cart = ["Susu", "Roti"];
+      function addItem(item) {
+        cart.push(item);
+      }
+      function removeItem(item) {
+        let index = cart.indexOf(item);
+        if (index === -1) {
+          console.error("Item tidak ditemukan dalam keranjang belanja.");
+          return [...cart];
+        }
+        return cart.filter((i) => i !== item);
+      }
+      addItem("Telur");
+      removeItem("Keju");
+      console.log(cart);
+    </script>
+     
+  </body>
+</html>

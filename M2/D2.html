@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+   
+  <head>
+       
+    <meta charset="UTF-8" />
+       
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+       
+    <title>Belajar JavaScript</title>
+     </head
+  > 
+  <body>
+       
+    <script>
+      //C2
+      let book = {
+        title: "Belajar JavaScript",
+        author: "John Doe",
+        summary: function () {
+          console.log("Title by Author");
+        },
+        publisher: {
+          name: "Penerbit ABC",
+          year: 2023,
+        },
+      };
+      book.summary();
+      console.log("Penulis: " + book.author);
+      console.log("Penerbit: " + book.publisher.name);
+      console.log("Tahun: " + book.publisher.year);
+      console.log("-----------------------");
+      //C3
+      let student = {
+        name: "steven",
+        grades: [90, 85, 88],
+        contact: {
+          email: "steven@gmail.com",
+          phone: "123-456-7890",
+        },
+        averageGrade: function () {
+          let total = this.grades.reduce((sum, grade) => sum + grade, 0);
+          return total / this.grades.length;
+        },
+      };
+      console.log("Nama: " + student.name);
+      console.log("Rata-rata Nilai: " + student.averageGrade());
+      console.log("Email: " + student.contact.email);
+      console.log("Telepon: " + student.contact.phone);
+    </script>
+     
+  </body>
+</html>

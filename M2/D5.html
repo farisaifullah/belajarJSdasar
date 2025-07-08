@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Latihan Form dan Validasi</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    input, textarea { display: block; margin-bottom: 10px; padding: 6px; width: 100%; max-width: 400px; }
+    button { padding: 6px 12px; margin-bottom: 20px; }
+    ul { padding-left: 20px; }
+    li { margin-bottom: 6px; }
+  </style>
+</head>
+<body>
+
+  <h2>Soal 2A: Halo Nama</h2>
+  <input type="text" id="nama1" placeholder="Nama Pengguna" />
+  <button id="kirim1">Submit</button>
+  <p id="hasil1"></p>
+
+  <h2>Soal 2B: Nama dan Umur</h2>
+  <input type="text" id="nama2" placeholder="Nama Pengguna" />
+  <input type="text" id="umur" placeholder="Umur Pengguna" />
+  <button id="kirim2">Submit</button>
+  <p id="hasil2"></p>
+
+  <h2>Soal 3: Komentar Pengguna</h2>
+  <input type="text" id="nama3" placeholder="Nama Pengguna" />
+  <textarea id="komentar" placeholder="Tulis komentar..."></textarea>
+  <button id="kirim3">Kirim Komentar</button>
+  <ul id="daftar-komentar"></ul>
+
+  <script>
+    // Soal 2A
+    document.getElementById("kirim1").addEventListener("click", function () {
+      const nama = document.getElementById("nama1").value.trim();
+      if (nama === "") {
+        alert("Silakan masukkan nama!");
+      } else {
+        document.getElementById("hasil1").textContent = `Halo, ${nama}!`;
+        document.getElementById("nama1").value = "";
+      }
+    });
+
+    // Soal 2B
+    document.getElementById("kirim2").addEventListener("click", function () {
+      const nama = document.getElementById("nama2").value.trim();
+      const umur = document.getElementById("umur").value.trim();
+      const umurAngka = parseInt(umur);
+
+      if (nama === "") {
+        alert("Nama tidak boleh kosong!");
+      } else if (umur === "" || isNaN(umurAngka) || umurAngka <= 0) {
+        alert("Umur harus diisi dengan angka yang valid!");
+      } else {
+        document.getElementById("hasil2").textContent = `Nama: ${nama}, Umur: ${umurAngka}`;
+        document.getElementById("nama2").value = "";
+        document.getElementById("umur").value = "";
+      }
+    });
+
+    // Soal 3
+    document.getElementById("kirim3").addEventListener("click", function () {
+      const nama = document.getElementById("nama3").value.trim();
+      const komentar = document.getElementById("komentar").value.trim();
+
+      if (nama === "" || komentar === "") {
+        alert("Silakan isi semua field!");
+      } else {
+        const list = document.getElementById("daftar-komentar");
+        const item = document.createElement("li");
+        item.textContent = `Nama: ${nama} - Komentar: ${komentar}`;
+        list.appendChild(item);
+
+        // Kosongkan input
+        document.getElementById("nama3").value = "";
+        document.getElementById("komentar").value = "";
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE htm <input id="input1" type="text">
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Belajar JavaScript</title>
+  </head>
+  <body>
+    <button id="klikSaya">Klik Saya</button>
+    <button id="button1">Tombol 1</button>
+    <button id="button2">Tombol 2</button>
+    <h1 id="h1">Belajar Event Handling</h1>
+    <p>-----------------------------------</p>
+    <input id="input1" type="text" />
+    <button id="button3">Tombol 3</button>
+    <p id="hasil"></p>
+    <script>
+      //C2A
+      let tombol = document.getElementById("klikSaya");
+      tombol.addEventListener("click", function () {
+        alert("Tombol diklik!");
+        tombol.style.backgroundColor = "blue";
+        tombol.style.color = "white";
+        tombol.textContent = "Sudah Diklik";
+      });
+
+      //C2B
+      let button1 = document.getElementById("button1");
+      button1.addEventListener("click", function () {
+        alert("Halo, Faris!");
+      });
+
+      let button2 = document.getElementById("button2");
+      button2.addEventListener("click", function () {
+        h1.style.color = "green";
+      });
+
+      //C3
+      let button3 = document.getElementById("button3");
+      let input1 = document.getElementById("input1");
+      let hasil = document.getElementById("hasil");
+      button3.addEventListener("click", function () {
+        if (input1.value.trim() !== "") {
+          hasil.textContent = input1.value;
+          input1.value = "";
+        } else {
+          alert("Silakan isi input!");
+        }
+      });
+    </script>
+  </body>
+</html>
