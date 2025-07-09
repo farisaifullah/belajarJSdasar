@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Belajar Javascript</title>
+  </head>
+  <body>
+    <script>
+      //C2A
+      const angka1 = [2, 4, 6, 8];
+      const angkaKali = angka1.map(function (angka1) {
+        return angka1 * 10;
+      });
+      console.log(angkaKali);
+      //C2B
+      console.log("------------------");
+      const angka2 = [10, 15, 20, 25, 30];
+      const angkaFilter = angka2.filter(function (angka2) {
+        return angka2 % 10 === 0;
+      });
+      console.log(angkaFilter);
+      //C2C
+      console.log("------------------");
+      const angka3 = [5, 10, 15];
+      const angkaReduce = angka3.reduce(function (total, angka3) {
+        return total + angka3;
+      });
+      console.log(angkaReduce);
+      //C3
+      console.log("------------------");
+      const users = [
+        { name: "Faris", age: 21 },
+        { name: "Rina", age: 17 },
+        { name: "Budi", age: 19 },
+      ];
+      const mapUsers = users.map(function (user) {
+        return `Nama: ${user.name} (${user.age})`;
+      });
+      console.log(mapUsers[0]);
+
+      const filterUsers = users.filter(function (user) {
+        return user.age >= 18;
+      });
+      console.log(filterUsers);
+
+      const reduceUsers = users.reduce(function (total, user) {
+        return total + user.age;
+      },0);
+      console.log(reduceUsers);
+    </script>
+  </body>
+</html>
