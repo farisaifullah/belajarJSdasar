@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To Do List - Mini Project</title>
+  </head>
+  <body>
+    <h1>To Do List</h1>
+
+    <input type="text" id="tugas" placeholder="Masukkan tugas..." />
+    <button id="tambah">Tambah</button>
+
+    <ul id="daftar-tugas"></ul>
+
+    <script>
+      // Mendapatkan elemen-elemen yang diperlukan
+      const inputTugas = document.getElementById("tugas");
+      const tombolTambah = document.getElementById("tambah");
+      const daftarTugas = document.getElementById("daftar-tugas");
+
+      // Fungsi untuk menambahkan tugas
+      function tambahTugas() {
+        const tekstugas = inputTugas.value.trim();
+        // Validasi input tidak kosong
+        if (tekstugas === "") {
+          alert("Tugas tidak boleh kosong!");
+          return;
+        }
+
+        // Buat elemen li baru
+        let item = document.createElement("li");
+        item.innerHTML =
+          tekstugas + ' <button onclick="hapusTugas(this)">Hapus</button>';
+
+        // Tambahkan item ke daftar
+        daftarTugas.appendChild(item);
+
+        // Kosongkan input
+        inputTugas.value = "";
+
+        alert('Tugas "' + tekstugas + '" berhasil ditambahkan!');
+      }
+
+      // Fungsi untuk menghapus tugas
+      function hapusTugas(button) {
+        const item = button.parentElement;
+        const tugasText = item.textContent.replace(" Hapus", "");
+        item.remove();
+        alert('Tugas "' + tugasText + '" berhasil dihapus!');
+      }
+
+      // Event listener untuk tombol tambah
+      tombolTambah.addEventListener("click", tambahTugas);
+      // Event listener untuk Enter key pada input
+      inputTugas.addEventListener("keypress", function (e) {
+        if (e.key === "Enter") {
+          tambahTugas();
+        }
+      });
+    </script>
+  </body>
+</html>
